@@ -13,6 +13,15 @@ class Urls {
     getGroupMembers(groupId) {
         return `${this.url}/groups.getMembers?group_id=${groupId}&fields=photo_400_orig&${this.commonInfo}`
     }
+    getMessageConversations(groupId,filter){
+        return `${this.url}/messages.getConversations?group_id=${groupId}&fields=photo_400_orig&${this.commonInfo}&filter=${filter}`
+    }
+
+    messageSend(peer_id){
+        return `${this.url}/messages.send?peer_id=${peer_id}&random_id=0&message="Hello!!"&${this.commonInfo}`
+    }
+
+
 }
 
 export const urls = new Urls()

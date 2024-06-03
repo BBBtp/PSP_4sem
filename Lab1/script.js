@@ -13,18 +13,50 @@ window.onload = function () {
     let digitButtons = document.querySelectorAll('[id ^= "btn_digit_"]')
 
     function onDigitButtonClicked(digit) {
-        if (!selectedOperation) {
-            if ((digit !== '.') || (digit === '.' && !a.includes(digit))) {
-                a += digit
+        const maxDigits = 18;
+
+        // Function to handle number formatting
+        function formatNumber(numStr) {
+            if (numStr.length > maxDigits) {
+                const num = parseFloat(numStr);
+                outputElement.style.fontSize = '1.2rem'; // уменьшить размер шрифта для экспоненциальной формы
+                return num.toExponential();
             }
-            outputElement.innerHTML = a
-        } else {
-            if ((digit !== '.') || (digit === '.' && !b.includes(digit))) {
-                b += digit
-                outputElement.innerHTML = b
+            return numStr;
+        }
+
+        // Update font size based on length
+        if (outputElement.textContent.length < maxDigits) {
+            switch (outputElement.textContent.length) {
+                case 16:
+                    outputElement.style.fontSize = '1.4rem';
+                    break;
+                case 17:
+                    outputElement.style.fontSize = '1.3rem';
+                    break;
+                default:
+                    outputElement.style.fontSize = '1.5rem';
+                    break;
             }
         }
+
+        if (!selectedOperation) {
+            if ((digit != '.') || (digit == '.' && !a.includes(digit))) {
+                a += digit;
+            }
+
+            // Format the number if it exceeds maxDigits
+            outputElement.innerHTML = formatNumber(a);
+        } else {
+            if ((digit != '.') || (digit == '.' && !b.includes(digit))) {
+                b += digit;
+            }
+
+            // Format the number if it exceeds maxDigits
+            outputElement.innerHTML = formatNumber(b);
+        }
     }
+
 
 // устанавка колбек-функций на кнопки циферблата по событию нажатия
     digitButtons.forEach(button => {

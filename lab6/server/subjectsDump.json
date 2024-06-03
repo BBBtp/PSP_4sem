@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "src": "https://catherineasquithgallery.com/uploads/posts/2021-03/1614841544_52-p-fon-matematika-53.jpg",
+    "title": "Математика",
+    "text": "Сложная наука"
+  },
+  {
+    "id": 2,
+    "src": "https://static.tildacdn.com/tild3264-6266-4735-b534-303734333261/30e7f17706a1ec5b0ec1.jpg",
+    "title": "Русский язык",
+    "text": "Без этой науки никак"
+  },
+  {
+    "id": 3,
+    "src": "https://gas-kvas.com/grafic/uploads/posts/2023-10/1696532287_gas-kvas-com-p-kartinki-fizkultura-12.jpg",
+    "title": "Физкультура",
+    "text": "Для крепкого здоровья"
+  }
+]
